@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB", "RTB\RTB.csproj", "{78504A71-2BD8-4871-8D9A-0B37E6E64124}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78504A71-2BD8-4871-8D9A-0B37E6E64124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78504A71-2BD8-4871-8D9A-0B37E6E64124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78504A71-2BD8-4871-8D9A-0B37E6E64124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78504A71-2BD8-4871-8D9A-0B37E6E64124}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {472D8813-B9A7-432F-BBDB-384B52F2874F}
+	EndGlobalSection
+EndGlobal
