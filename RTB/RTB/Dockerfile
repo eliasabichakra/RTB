@@ -1,23 +1,22 @@
-# Use the official ASP.NET Core runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+# Use the official ASP.NET Core SDK image as the build environment
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
+
+# Copy the project file and restore dependencies
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy the remaining files and build the application
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# Use the official ASP.NET Core runtime image as the runtime environment
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/out ./
+
+# Expose the port your application listens on
 EXPOSE 7099
 
-# Build stage
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
-COPY ["RTB.csproj", "RTB/"]
-RUN dotnet restore "RTB/RTB.csproj"
-COPY . .
-WORKDIR "/src/RTB"
-RUN dotnet build "RTB.csproj" -c Release -o /app/build
-
-# Publish stage
-FROM build AS publish
-RUN dotnet publish "RTB.csproj" -c Release -o /app/publish
-
-# Final stage
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
+# Define the entry point for the container
 ENTRYPOINT ["dotnet", "RTB.dll"]
